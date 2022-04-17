@@ -141,9 +141,11 @@ menu = st.sidebar.radio(
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 st.sidebar.markdown('---')
-st.sidebar.markdown('''Hansaem Park | SSEL   
-                    E-mail: saem@kaist.ac.kr  
-                    Website: https://ssel.kaist.ac.kr/''')
+st.sidebar.markdown(''' **Hansaem Park** | **SSEL**     
+                    **E-mail** : saem@kaist.ac.kr  
+                    **Website** :   
+                    - Google Scholar : <https://scholar.google.co.kr/citations?hl=ko&user=r7tvGrUAAAAJ>   
+                    - Research Gate : <https://www.researchgate.net/profile/Han-Saem-Park-3> ''')
 
 if menu == 'Introduction':
     st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
