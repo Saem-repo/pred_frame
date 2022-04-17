@@ -431,7 +431,6 @@ elif menu == "Development of Prediction Model" :
     
     
     st.subheader('Selection of prediction task')
-    
     tasks = ["Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"]
     task_menu = st.selectbox("", tasks, index=0)
 
