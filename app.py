@@ -627,7 +627,7 @@ elif menu == "Development of Prediction Model" :
     #-----------------------------------------------------------------------------------------
     
     elif task_menu == "Individual Thermal Comfort":
-        st.write('개별 열쾌적성 예측 모델 만드는 곳')
+        #st.write('개별 열쾌적성 예측 모델 만드는 곳')
         st.markdown("""
                 This app performs prediction tasks based on transfer learning with different ensembled strategies.
                 * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
