@@ -430,6 +430,8 @@ elif menu == "Development of Prediction Model" :
     # )
     
     
+    st.subhead('Selection of prediction task')
+    
     tasks = ["Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"]
     task_menu = st.selectbox("", tasks, index=0)
 
@@ -462,9 +464,11 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -481,14 +485,15 @@ elif menu == "Development of Prediction Model" :
                             2)
             
             
-            if st.button("Load Data & Generating Model"):
-                st.dataframe(data)
+            if st.button("Build Predictive Model"):
+                # st.dataframe(data)
                 cols = data.columns
                 target = cols[-1]
                 # print(cols)
                 with st.spinner('Wating...'):
                     model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
                     
+                    st.success('Finished!!!')
                     stl_mape = mean_absolute_percentage_error(stl_act, stl_pred)
                     stl_r2 = r2_score(stl_act, stl_pred)
                     stl_cv_rmse = cv_rmse(stl_act, stl_pred)
@@ -515,9 +520,12 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -532,8 +540,7 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
-                st.dataframe(data)
+            if st.button("Build Predictive Model"):
                 cols = data.columns
                 target = cols[-1]
                 # st.write(frac)
@@ -542,6 +549,7 @@ elif menu == "Development of Prediction Model" :
                     model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
                     etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
                     
+                    st.success('Finished')        
                     etl_mape = mean_absolute_percentage_error(etl_act, etl_pred)
                     etl_r2 = r2_score(etl_act, etl_pred)
                     etl_cv_rmse = cv_rmse(etl_act, etl_pred)
@@ -568,9 +576,12 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -585,10 +596,9 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
+            if st.button("Build Predictive Model"):
                 
                     # Raw data 
-                st.dataframe(data)
                 cols = data.columns
                 target = cols[-1]
                     
@@ -599,6 +609,7 @@ elif menu == "Development of Prediction Model" :
                     
                     hetl_model, hetl_pred, hetl_act = stacked_model(data, target, 2, 'HETL_', 'reg')
                     
+                    st.success('Finished')        
                     
                     hetl_mape = mean_absolute_percentage_error(hetl_act, hetl_pred)
                     hetl_r2 = r2_score(hetl_act, hetl_pred)
@@ -640,9 +651,11 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -658,13 +671,14 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
-                st.dataframe(data)
+            if st.button("Build Predictive Model"):
                 cols = data.columns
                 target = cols[-1]
                 # print(cols)
                 with st.spinner('Wating...'):
                     model, stl_pred, stl_act = cnn_clf(data, target, 2, 'STL_ITC')
+                    
+                    st.success('Finished')
                     
                     stl_acc = accuracy_score(stl_act, stl_pred)
                     stl_f1 = f1_score(stl_act, stl_pred, average = 'weighted')
@@ -691,9 +705,12 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -708,8 +725,7 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
-                st.dataframe(data)
+            if st.button("Build Predictive Model"):
                 cols = data.columns
                 target = cols[-1]
                 # st.write(frac)
@@ -718,6 +734,8 @@ elif menu == "Development of Prediction Model" :
                     model, stl_pred, stl_act = cnn_clf(data, target, 2, 'STL_ITC')
                     etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_ITC', frac)
                     
+                    st.success('Finished')
+                        
                     etl_acc = accuracy_score(etl_act, etl_pred)
                     etl_f1 = f1_score(etl_act, etl_pred)
                     #st.write(error)
@@ -743,9 +761,12 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -760,10 +781,9 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
+            if st.button("Build Predictive Model"):
                 
                     # Raw data 
-                st.dataframe(data)
                 cols = data.columns
                 target = cols[-1]
                     
@@ -774,6 +794,7 @@ elif menu == "Development of Prediction Model" :
                     
                     hetl_model, hetl_pred, hetl_act = stacked_model(data, target, 2, 'HETL_', 'clf')
                     
+                    st.success('Finished')
                     
                     hetl_acc = accuracy_score(hetl_act, hetl_pred)
                     hetl_f1 = f1_score(hetl_act, hetl_pred)
@@ -815,9 +836,11 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -833,14 +856,15 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
-                st.dataframe(data)
+            if st.button("Build Predictive Model"):
                 cols = data.columns
                 target = cols[-1]
                 # print(cols)
                 with st.spinner('Wating...'):
                     model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
                     
+                    st.success('Finished')
+                        
                     stl_mape = mean_absolute_percentage_error(stl_act, stl_pred)
                     stl_r2 = r2_score(stl_act, stl_pred)
                     stl_cv_rmse = cv_rmse(stl_act, stl_pred)
@@ -867,9 +891,12 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -884,8 +911,7 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
-                st.dataframe(data)
+            if st.button("Build Predictive Model"):
                 cols = data.columns
                 target = cols[-1]
                 # st.write(frac)
@@ -893,6 +919,8 @@ elif menu == "Development of Prediction Model" :
                 with st.spinner('Wating...'):
                     model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
                     etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
+                    
+                    st.success('Finished')
                     
                     etl_mape = mean_absolute_percentage_error(etl_act, etl_pred)
                     etl_r2 = r2_score(etl_act, etl_pred)
@@ -920,9 +948,12 @@ elif menu == "Development of Prediction Model" :
             if uploaded_file is not None:
                 try:
                     data = pd.read_csv(uploaded_file)
+                    st.write(data.describe())
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_file)
+                    st.write(data.describe())
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -937,10 +968,9 @@ elif menu == "Development of Prediction Model" :
                             0, 10,
                             2)
             
-            if st.button("Load Data & Generating Model"):
+            if st.button("Build Predictive Model"):
                 
                     # Raw data 
-                st.dataframe(data)
                 cols = data.columns
                 target = cols[-1]
                     
@@ -951,6 +981,7 @@ elif menu == "Development of Prediction Model" :
                     
                     hetl_model, hetl_pred, hetl_act = stacked_model(data, target, 2, 'HETL_', 'reg')
                     
+                    st.success('Finished')
                     
                     hetl_mape = mean_absolute_percentage_error(hetl_act, hetl_pred)
                     hetl_r2 = r2_score(hetl_act, hetl_pred)
