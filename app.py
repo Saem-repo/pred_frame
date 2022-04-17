@@ -442,9 +442,9 @@ elif menu == "Development of Prediction Model" :
         
         st.markdown("""
                 This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
+                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 """)
       
         model_type = st.radio(
@@ -479,7 +479,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             
@@ -535,7 +535,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -591,7 +591,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -630,9 +630,9 @@ elif menu == "Development of Prediction Model" :
         st.write('개별 열쾌적성 예측 모델 만드는 곳')
         st.markdown("""
                 This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
+                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 """)
       
         model_type = st.radio(
@@ -666,7 +666,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -720,7 +720,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -776,7 +776,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -815,9 +815,9 @@ elif menu == "Development of Prediction Model" :
         # st.write('자연환기 예측 모델 만드는 곳')
         st.markdown("""
                 This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
+                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 """)
       
         model_type = st.radio(
@@ -851,7 +851,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -906,7 +906,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
@@ -963,7 +963,7 @@ elif menu == "Development of Prediction Model" :
             with ensem_num_col :
                 st.subheader('Choose the number of ensembled networks')
                 ensem_num = st.slider("", 
-                            0, 10,
+                            2, 10,
                             2)
             
             if st.button("Build Predictive Model"):
