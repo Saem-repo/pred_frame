@@ -175,16 +175,40 @@ elif menu == "Exploratory Data Analysis (EDA)":
     )
     if eda_menu == "Building Energy":
         
-        energy_sum_w1 = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\building_energy\\energy_sum_w1.csv')
-        energy_sum_w6 = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\building_energy\\energy_sum_w6.csv')
-        energy_win_w1 = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\building_energy\\energy_win_w1.csv')
-        energy_win_w6 = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\building_energy\\energy_win_w6.csv')
+        energy_sum = pd.read_csv('./#Data/building_energy/energy_summer.csv')
+        energy_win = pd.read_csv('./#Data/building_energy/energy_winter.csv')
+        
+        energy_sum.loc[energy_sum['applied_engi']==0,'applied_engi'] = np.NaN
+
+        energy_win.loc[energy_win['applied_engi']>=2000, 'applied_engi'] = np.NaN
+        energy_win.loc[energy_win['applied_engi']==0,'applied_engi'] = np.NaN
+
+        energy_sum.loc[energy_sum['mir_dorm']>=200, 'mir_dorm'] = np.NaN
+        energy_sum.loc[energy_sum['mir_dorm']==0, 'mir_dorm'] = np.NaN
+
+        energy_win.loc[energy_win['mir_dorm']>=400, 'mir_dorm'] = np.NaN
+        energy_win.loc[energy_win['mir_dorm']==0, 'mir_dorm'] = np.NaN
+
+        energy_sum = energy_sum.fillna(method='ffill')
+        energy_win = energy_win.fillna(method='ffill')
+        
+        def data_extraction (df, bldg) :
+            temp_df = df.iloc[:,:9]
+            temp_df[bldg] = df.loc[:,bldg]
+            
+            return temp_df
+        
+        energy_sum_w1 = data_extraction(energy_sum, 'applied_engi')
+        energy_sum_w6 = data_extraction(energy_sum, 'mir_dorm')
+        
+        energy_win_w1 = data_extraction(energy_win, 'applied_engi')
+        energy_win_w6 = data_extraction(energy_win, 'mir_dorm')
         
         st.markdown(''' ### Source and Target Buildings ''')
 
         with st.expander("Statistics of source building"):
-            st.write('Source building (W1 in Summer)')
-            st.table(energy_sum_w1.describe())
+            st.write('Source buildings (in Summer)')
+            st.table(energy_sum.describe())
         
         with st.expander("Statistics of target building"):
             st.write('Target building (W1 in Winter: Case 1)')
@@ -207,7 +231,13 @@ elif menu == "Exploratory Data Analysis (EDA)":
             plt.plot(filtered_df_sum, color='r', label='Summer')
             plt.plot(filtered_df_win, color='y', label='Winter')
             
-            plt.ylabel('Energy Consumption $(kWh)$')
+            if data_cols == 'temp' :
+                plt.ylabel('Outdoor Temperature $(\N{DEGREE SIGN}C)$')
+            elif data_cols == 'humidity' :
+                plt.ylabel('Outdoor Relative Humidity Difference (%)')
+            else :
+                plt.ylabel('Energy Consumption $(kWh)$')
+            
             plt.legend(loc='best')
             
             return st.pyplot(fig)
@@ -392,7 +422,7 @@ elif menu == "Exploratory Data Analysis (EDA)":
             
 elif menu == "Development of Prediction Model" :
         
-    st.title(""" 지식 공유 AI 기반 건물 에너지 예측 """)
+    st.title(""" Enesembled Transferable Predicitve Models on Building Tasks """)
     
     # task_menu= st.radio(
     #     "",
@@ -437,10 +467,19 @@ elif menu == "Development of Prediction Model" :
                     data = pd.read_excel(uploaded_file)
             
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
+            
             
             if st.button("Load Data & Generating Model"):
                 st.dataframe(data)
@@ -480,10 +519,18 @@ elif menu == "Development of Prediction Model" :
                     print(e)
                     data = pd.read_excel(uploaded_file)
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 st.dataframe(data)
@@ -525,10 +572,18 @@ elif menu == "Development of Prediction Model" :
                     print(e)
                     data = pd.read_excel(uploaded_file)
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 
@@ -590,10 +645,18 @@ elif menu == "Development of Prediction Model" :
                     data = pd.read_excel(uploaded_file)
             
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 st.dataframe(data)
@@ -632,10 +695,18 @@ elif menu == "Development of Prediction Model" :
                     print(e)
                     data = pd.read_excel(uploaded_file)
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 st.dataframe(data)
@@ -676,10 +747,18 @@ elif menu == "Development of Prediction Model" :
                     print(e)
                     data = pd.read_excel(uploaded_file)
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 
@@ -741,10 +820,18 @@ elif menu == "Development of Prediction Model" :
                     data = pd.read_excel(uploaded_file)
             
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 st.dataframe(data)
@@ -784,10 +871,18 @@ elif menu == "Development of Prediction Model" :
                     print(e)
                     data = pd.read_excel(uploaded_file)
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 st.dataframe(data)
@@ -829,10 +924,18 @@ elif menu == "Development of Prediction Model" :
                     print(e)
                     data = pd.read_excel(uploaded_file)
             
-            st.subheader('Choose the ratio of fine-tuned data')
-            frac = st.slider("", 
+            frac_col, ensem_num_col = st.columns([2, 2])
+                    
+            with frac_col :
+                st.subheader('Choose the ratio of fine-tuned data')
+                frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
+            with ensem_num_col :
+                st.subheader('Choose the number of ensembled networks')
+                ensem_num = st.slider("", 
+                            0, 10,
+                            2)
             
             if st.button("Load Data & Generating Model"):
                 
@@ -854,7 +957,7 @@ elif menu == "Development of Prediction Model" :
                     hetl_cv_rmse = cv_rmse(hetl_act, hetl_pred)
                     #st.write(error)
                     
-                    error_df = pd.DataFrame([[hetl_r2, hetl_cv_rmse, hetl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    error_df = pd.DataFrame([[hetl_r2, hetl_cv_rmse]], columns=['R-squared', 'CV-RMSE'])
                     
                     col1, col2 = st.columns([2, 2])
                     
