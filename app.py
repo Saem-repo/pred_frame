@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import pandas as pd
-# import shap
+import shap
 from PIL import Image
 from sklearn.model_selection import train_test_split
 
