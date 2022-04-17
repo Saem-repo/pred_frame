@@ -430,9 +430,8 @@ elif menu == "Development of Prediction Model" :
     # )
     
     
-    st.subheader('Selection of prediction task')
     tasks = ["Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"]
-    task_menu = st.selectbox("", tasks, index=0)
+    task_menu = st.selectbox("Selection of prediction task", tasks, index=0)
 
 
     #("Standard Transfer Learning", "Ensembled Transfer Learning","Hybrid Ensembled Transfer Learning"),
@@ -449,7 +448,7 @@ elif menu == "Development of Prediction Model" :
                 """)
       
         model_type = st.radio(
-            "",
+            "Selection of different ensemble transferable model",
             ("STL", "ETL","HETL"),
         )
         
