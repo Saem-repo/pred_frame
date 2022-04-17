@@ -159,7 +159,7 @@ if menu == 'Introduction':
                 * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 """)
 
-    img = Image.open('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\Research Outline.png')
+    img = Image.open('./Research Outline.png')
     st.image(img)
     
     
@@ -266,9 +266,9 @@ elif menu == "Exploratory Data Analysis (EDA)":
         
         st.write('각 사람들 클래스 레이블 및 실내 온습도와 각 생리학 정보 투영')
         
-        phs = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\ptc\\3scaled_PHS.csv')
-        pdy = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\ptc\\3scaled_PDY.csv')
-        khm = pd.read_csv('C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\ptc\\3scaled_KHM.csv')
+        phs = pd.read_csv('./#Data/ptc/3scaled_PHS.csv')
+        pdy = pd.read_csv('./#Data/ptc/3scaled_PDY.csv')
+        khm = pd.read_csv('./#Data/ptc/3scaled_KHM.csv')
         
         
         phs_df_rev = phs
@@ -365,11 +365,11 @@ elif menu == "Exploratory Data Analysis (EDA)":
     elif eda_menu == "Natural Ventilation Rate":
         st.write('가을 및 여름 데이터 통계량과 수집일에 따른 자연환기량 ')
         
-        nv_df_sum = pd.read_csv("C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\nvr\\20220328_sum_vars.csv")
-        nv_df_fall = pd.read_csv("C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\nvr\\20220328_fall_vars.csv")
+        nv_df_sum = pd.read_csv("./#Data/nvr/20220328_sum_vars.csv")
+        nv_df_fall = pd.read_csv("./#Data/nvr/20220328_fall_vars.csv")
 
-        nv_df_sum_time = pd.read_csv("C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\nvr\\20220328_sum_data.csv")
-        nv_df_fall_time = pd.read_csv("C:\\Users\\ssel\\Desktop\\Experiment\\Prediction Framework\\#Data\\nvr\\20220328_fall_data.csv")
+        nv_df_sum_time = pd.read_csv("./#Data/nvr/20220328_sum_data.csv")
+        nv_df_fall_time = pd.read_csv("./#Data/nvr/20220328_fall_data.csv")
     
         nv_df_sum_time['Time'] = pd.to_datetime(nv_df_sum_time['Time'], format = '%Y-%m-%d %H:%M', errors= 'raise')
         nv_df_fall_time['time'] = pd.to_datetime(nv_df_fall_time['time'], format = '%H:%M:%S', errors= 'raise')
