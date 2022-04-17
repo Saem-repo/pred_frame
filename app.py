@@ -111,7 +111,7 @@ fracs = [0.2, 0.4, 0.6, 0.8, 1]
 
 st.set_page_config(layout='wide',
                    page_icon='./smart_grid.png', 
-                   initial_sidebar_state='collapsed',
+                #    initial_sidebar_state='collapsed',
                    page_title='Ensembled Trasnfer Learning for Integrated Building Management System')
 
 # streamlit UI design
