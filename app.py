@@ -499,7 +499,8 @@ elif menu == "Development of Prediction Model" :
                     stl_cv_rmse = cv_rmse(stl_act, stl_pred)
                     #st.write(error)
                     
-                    error_df = pd.DataFrame([[stl_r2, stl_cv_rmse, stl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    # error_df = pd.DataFrame([[stl_r2, stl_cv_rmse, stl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    error_df = pd.DataFrame([[stl_r2, stl_cv_rmse]], columns=['R-squared', 'CV-RMSE'])
                     
                     col1, col2 = st.columns([2, 2])
                     
@@ -555,7 +556,8 @@ elif menu == "Development of Prediction Model" :
                     etl_cv_rmse = cv_rmse(etl_act, etl_pred)
                     #st.write(error)
                     
-                    error_df = pd.DataFrame([[etl_r2, etl_cv_rmse, etl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    # error_df = pd.DataFrame([[etl_r2, etl_cv_rmse, etl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    error_df = pd.DataFrame([[etl_r2, etl_cv_rmse]], columns=['R-squared', 'CV-RMSE'])
                     
                     col1, col2 = st.columns([2, 2])
                     
@@ -616,7 +618,9 @@ elif menu == "Development of Prediction Model" :
                     hetl_cv_rmse = cv_rmse(hetl_act, hetl_pred)
                     #st.write(error)
                     
-                    error_df = pd.DataFrame([[hetl_r2, hetl_cv_rmse, hetl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    # error_df = pd.DataFrame([[hetl_r2, hetl_cv_rmse, hetl_mape]], columns=['R-squared', 'CV-RMSE', 'MAPE'])
+                    
+                    error_df = pd.DataFrame([[hetl_r2, hetl_cv_rmse]], columns=['R-squared', 'CV-RMSE'])
                     
                     col1, col2 = st.columns([2, 2])
                     
@@ -748,7 +752,7 @@ elif menu == "Development of Prediction Model" :
                         errorplot(error_df)
                         
                     with col2 :
-                        regplot(etl_act, etl_pred)
+                        st.write(confusion_matrix(etl_act, etl_pred))
                     
             #if st.button("Generating AI Model"):
             
@@ -808,7 +812,7 @@ elif menu == "Development of Prediction Model" :
                         # st.write(error_df)
                         errorplot(error_df)
                     with col2 :
-                        regplot(hetl_act, hetl_pred)
+                        st.write(confusion_matrix(hetl_act, hetl_pred))
 
 
     #-----------------------------------------------------------------------------------------
