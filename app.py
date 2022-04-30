@@ -338,7 +338,7 @@ elif menu == "Exploratory Data Analysis (EDA)":
     elif eda_menu == "Thermal Comfort":
         
         
-        st.write('각 사람들 클래스 레이블 및 실내 온습도와 각 생리학 정보 투영')
+        # st.write('각 사람들 클래스 레이블 및 실내 온습도와 각 생리학 정보 투영')
         
         phs = pd.read_csv('./#Data/ptc/3scaled_PHS.csv')
         pdy = pd.read_csv('./#Data/ptc/3scaled_PDY.csv')
@@ -437,7 +437,7 @@ elif menu == "Exploratory Data Analysis (EDA)":
             boxplot(total_df, 'Rhin')
             
     elif eda_menu == "Natural Ventilation Rate":
-        st.write('가을 및 여름 데이터 통계량과 수집일에 따른 자연환기량 ')
+        # st.write('가을 및 여름 데이터 통계량과 수집일에 따른 자연환기량 ')
         
         nv_df_sum = pd.read_csv("./#Data/nvr/20220328_sum_vars.csv")
         nv_df_fall = pd.read_csv("./#Data/nvr/20220328_fall_vars.csv")
@@ -515,7 +515,7 @@ elif menu == "Development of Prediction Model" :
                 
                 ### Steps for development of predictive model 
                 1. Select prediction tasks
-                2. Select each type of prediction model based on transfer learning
+                2. Select each type of prediction model based on ensembled transfer learning
                 * **Transfer learning (STL) :** only performs fine-tuning layers on small amount of given datasets with single neural network previously developed
                 * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
                 * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
