@@ -479,20 +479,20 @@ elif menu == "Development of Prediction Model" :
     
     st.markdown('''
                 This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                 * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
-                 * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                 * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
+                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 
                 ### How to use
                 1. Select prediction tasks
                 2. Select each type of prediction model based on transfer learning
-                 * **Transfer learning (STL) :** only performs fine-tuning layers on small amount of given datasets with single neural network previously developed
-                 * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                 * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
-                3. Upload user created two files (Both Source and Target files) to the system
-                 * **Caution :** 
-                  - Files should be in the form of CSV or XLSX (Excel file)
-                  - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
+                * **Transfer learning (STL) :** only performs fine-tuning layers on small amount of given datasets with single neural network previously developed
+                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                3. Upload user created two files **(Both Source and Target files)** to the system
+                * **Caution :** 
+                    - Files should be in the form of CSV or XLSX (Excel file)
+                    - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
                 4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
                 5. Push the button "Build Predictive Model"   
                 ''')
@@ -519,7 +519,8 @@ elif menu == "Development of Prediction Model" :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot
             from pred_method import errorplot
             total_data = []
-            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
+            
             if uploaded_files is not None:
                 try:
                     data = pd.read_csv(uploaded_files)
