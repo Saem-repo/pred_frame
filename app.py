@@ -513,7 +513,7 @@ elif menu == "Development of Prediction Model" :
     st.markdown("""
                 Here we perform development of each predictive model according to building tasks based on transfer learning with different ensembled strategies.
                 
-                ### How to use
+                ### Steps for development of predictive model 
                 1. Select prediction tasks
                 2. Select each type of prediction model based on transfer learning
                 * **Transfer learning (STL) :** only performs fine-tuning layers on small amount of given datasets with single neural network previously developed
@@ -794,7 +794,7 @@ elif menu == "Development of Prediction Model" :
         #st.write('개별 열쾌적성 예측 모델 만드는 곳')
         
         model_type = st.radio(
-            "",
+            "Selection of different ensemble transferable model",
             ("STL", "ETL","HETL"),
         )
         
@@ -1043,7 +1043,7 @@ elif menu == "Development of Prediction Model" :
         # st.write('자연환기 예측 모델 만드는 곳')
         
         model_type = st.radio(
-            "",
+            "Selection of different ensemble transferable model",
             ("STL", "ETL","HETL"),
         )
         
