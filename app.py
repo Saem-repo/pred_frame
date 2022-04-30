@@ -153,7 +153,7 @@ if menu == 'Introduction':
     
     
     st.markdown("""
-              ### Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
+              #### **Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI**
               """)
     img = Image.open('./img/research_goal_new.png')
     
