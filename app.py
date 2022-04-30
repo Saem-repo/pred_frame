@@ -4,6 +4,7 @@
 # from re import A
 # from tabnanny import verbose
 # from turtle import title
+from asyncio.constants import ACCEPT_RETRY_DELAY
 import streamlit as st
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -519,20 +520,23 @@ elif menu == "Development of Prediction Model" :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot
             from pred_method import errorplot
             total_data = []
-            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             
             if uploaded_files is not None:
-                try:
-                    data = pd.read_csv(uploaded_files)
+                for file in uploaded_files :
+                    total_data.append(file)
+                
+                # try:
+                #     data = pd.read_csv(uploaded_files)
                     
-                    st.write(data.describe())
-                    # st.write(target_data.describe())
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
                     
                 
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_files)
-                    st.write(data.describe())
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
             
             
             st.write(total_data)
