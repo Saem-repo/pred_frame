@@ -532,7 +532,7 @@ elif menu == "Development of Prediction Model" :
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
-                        source_data = pd.read_csv(total_data)
+                        source_data = pd.read_csv(total_data[0])
                         st.write(source_data)
                     else:
                         st.write("Data should be inserted !!")
