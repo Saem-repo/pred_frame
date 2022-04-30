@@ -151,7 +151,7 @@ st.sidebar.markdown(''' **Hansaem Park** | **SSEL**
 if menu == 'Introduction':
     # st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
     
-    center_1, center_2, center_3 = st.columns([1, 8, 1])
+    center_1, center_2, center_3 = st.columns([0.25, 8.5, 0.25])
     # st.markdown("""
     #           #### **Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI**
     #           """)
