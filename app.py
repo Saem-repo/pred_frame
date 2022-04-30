@@ -111,7 +111,7 @@ fracs = [0.2, 0.4, 0.6, 0.8, 1]
 #%%
 
 st.set_page_config(layout='wide',
-                   page_icon='./smart_grid.png', 
+                   page_icon='./img/smart_grid.png', 
                 #    initial_sidebar_state='collapsed',
                    page_title='Ensembled Trasnfer Learning for MPC of energy systems in multiple buildings')
 
@@ -121,7 +121,7 @@ pred_task = ['Building Energy', 'Individual Thermal Comfort', 'Natural Ventilati
 
 #st.sidebar.image('smart_city.png', width=250)
 
-st.sidebar.image('smart_city.png')
+st.sidebar.image('./img/smart_city.png')
 
 st.sidebar.header('For Prediction of Building Energy, Thermal Comfort, Natural Ventilation')
 st.sidebar.markdown('Based on Knowledge Sharing AI')
@@ -154,7 +154,7 @@ if menu == 'Introduction':
     left_col, right_col = st.columns(2)
     
     with left_col :
-            img = Image.open('./research_goal_new.png')
+            img = Image.open('./img/research_goal_new.png')
             left_col.image(img)
     
     with right_col :
@@ -196,7 +196,7 @@ if menu == 'Introduction':
         # st.markdown("""
         #      # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
         #      """)
-        img_wsa = Image.open('./WSA.png')
+        img_wsa = Image.open('./img/WSA.png')
         
         right_col.image(img_wsa)
 
@@ -491,8 +491,8 @@ elif menu == "Development of Prediction Model" :
                 * **Caution :** 
                     - Files should be in the form of CSV or XLSX (Excel file)
                     - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
-                        ![data_order](Data_Order.png)
-                
+                    ![data_order](./img/Data_Order.png)
+                C:\Users\ssel\Desktop\Experiment\Prediction Framework\Data_Order.png
                 4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
                 5. Push the button "Build Predictive Model"   
                 ''')
