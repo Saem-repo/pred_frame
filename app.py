@@ -538,7 +538,7 @@ elif menu == "Development of Prediction Model" :
                         st.write("Data should be inserted !!")
                     
                 except Exception as e :
-                    st.write("Insert the Data")
+                    st.write("")
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
