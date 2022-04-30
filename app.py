@@ -152,9 +152,14 @@ if menu == 'Introduction':
     # st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
     
     
-    st.markdown("""
-              #### **Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI**
+    # st.markdown("""
+    #           #### **Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI**
+    #           """)
+    
+    st.title("""
+              **Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI**
               """)
+    
     img = Image.open('./img/research_goal_new.png')
     
     st.image(img)
