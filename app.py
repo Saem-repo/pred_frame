@@ -474,15 +474,6 @@ elif menu == "Exploratory Data Analysis (EDA)":
             
             return st.pyplot(fig)
         
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown('### Averaged natural ventilation rate of source office')
-            barplot(nv_df_fall_time_rev)
-            
-        with col2:
-            st.markdown('### Averaged natural ventilation rate of target office')
-            barplot(nv_df_sum_time_rev)
-            
         st.markdown(''' ### Source and Target Buildings ''')
 
         with st.expander("Statistics of source building"):
@@ -492,6 +483,17 @@ elif menu == "Exploratory Data Analysis (EDA)":
         with st.expander("Statistics of target building"):
             st.write('Target building (W16 Room #501)')
             st.table(nv_df_sum.describe())
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown('### Averaged natural ventilation rate of source office')
+            barplot(nv_df_fall_time_rev)
+            
+        with col2:
+            st.markdown('### Averaged natural ventilation rate of target office')
+            barplot(nv_df_sum_time_rev)
+            
+        
             
             
 elif menu == "Development of Prediction Model" :
