@@ -151,16 +151,24 @@ st.sidebar.markdown(''' **Hansaem Park** | **SSEL**
 if menu == 'Introduction':
     # st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
     
-    left_col, right_col = st.columns(2)
     
-    with left_col :
-            img = Image.open('./img/research_goal_new.png')
-            left_col.image(img)
+    st.markdown("""
+              ### Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
+              """)
+    img = Image.open('./img/research_goal_new.png')
     
-    with right_col :
-        st.markdown("""
-             ### Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
-             """)
+    st.image(img)
+    
+    # left_col, right_col = st.columns(2)
+    
+    # with left_col :
+    #         img = Image.open('./img/research_goal_new.png')
+    #         left_col.image(img)
+    
+    # with right_col :
+    #     st.markdown("""
+    #          ### Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
+    #          """)
     
     st.markdown("---")
 
