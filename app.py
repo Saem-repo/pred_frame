@@ -113,7 +113,7 @@ fracs = [0.2, 0.4, 0.6, 0.8, 1]
 st.set_page_config(layout='wide',
                    page_icon='./img/smart_grid.png', 
                 #    initial_sidebar_state='collapsed',
-                   page_title='Ensembled Trasnfer Learning for MPC of energy systems in multiple buildings')
+                   page_title='Knowledge Sharing AI-based Prediction Framework for Optimal Control of HVAC in Building Grid Context')
 
 # streamlit UI design
 
@@ -151,14 +151,14 @@ st.sidebar.markdown(''' **Hansaem Park** | **SSEL**
 if menu == 'Introduction':
     # st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
     
-    center_1, center_2, center_3 = st.columns([0.25, 8.5, 0.25])
+    center_1, center_2, center_3 = st.columns([0.25, 9.5, 0.25])
     # st.markdown("""
     #           #### **Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI**
     #           """)
     
     with center_2 :
         st.title("""
-              **Generalized Prediction Framework for MPC in Multiple Buildilngs based on Knowledge Sharing AI**
+              **Knowledge Sharing AI-based Prediction Framework for Optimal Control of HVAC in Building Grid Context**
               """)
     
     # left_col, right_col = st.columns(2)
