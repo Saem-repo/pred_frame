@@ -525,6 +525,10 @@ elif menu == "Development of Prediction Model" :
             if uploaded_files is not None:
                 for file in uploaded_files :
                     total_data.append(file)
+                
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -538,9 +542,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             st.subheader('Choose the ratio of fine-tuned data')
             frac = st.slider("", 
@@ -587,6 +589,11 @@ elif menu == "Development of Prediction Model" :
                 for file in uploaded_files :
                     total_data.append(file)
                     
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
+            
+                    
                 # try:
                 #     data = pd.read_csv(uploaded_files)
                     
@@ -599,9 +606,6 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -657,6 +661,9 @@ elif menu == "Development of Prediction Model" :
                 for file in uploaded_files :
                     total_data.append(file)
                     
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
                 # try:
                 #     data = pd.read_csv(uploaded_files)
                     
@@ -669,9 +676,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             
             
@@ -742,6 +747,10 @@ elif menu == "Development of Prediction Model" :
                 for file in uploaded_files :
                     total_data.append(file)
                     
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
+                        
                 # try:
                 #     data = pd.read_csv(uploaded_files)
                     
@@ -754,9 +763,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -808,6 +815,10 @@ elif menu == "Development of Prediction Model" :
             if uploaded_files is not None:
                 for file in uploaded_files :
                     total_data.append(file)
+                
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -821,9 +832,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -877,6 +886,10 @@ elif menu == "Development of Prediction Model" :
             if uploaded_files is not None:
                 for file in uploaded_files :
                     total_data.append(file)
+                
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -890,9 +903,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -958,6 +969,10 @@ elif menu == "Development of Prediction Model" :
             if uploaded_files is not None:
                 for file in uploaded_files :
                     total_data.append(file)
+                
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -971,9 +986,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -1027,7 +1040,11 @@ elif menu == "Development of Prediction Model" :
             if uploaded_files is not None:
                 for file in uploaded_files :
                     total_data.append(file)
-                    
+                
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
+                        
                 # try:
                 #     data = pd.read_csv(uploaded_files)
                     
@@ -1040,9 +1057,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
+            
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -1097,6 +1112,11 @@ elif menu == "Development of Prediction Model" :
             if uploaded_files is not None:
                 for file in uploaded_files :
                     total_data.append(file)
+                
+                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                st.write(source_data)
+                st.write(target_data)
+                
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -1110,9 +1130,6 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-            st.write(source_data)
-            st.write(target_data)
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
