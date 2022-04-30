@@ -523,7 +523,7 @@ elif menu == "Development of Prediction Model" :
             uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             if uploaded_file is not None:
                 try:
-                    data = pd.read_csv(uploaded_file])
+                    data = pd.read_csv(uploaded_file)
                     st.write(data.describe())
                 except Exception as e:
                     print(e)
