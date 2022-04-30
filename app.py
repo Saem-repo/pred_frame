@@ -161,11 +161,6 @@ if menu == 'Introduction':
               **Generalized Prediction Framework for MPC in Multiple Buildilngs based on Knowledge Sharing AI**
               """)
     
-    st.markdown("---")
-    img = Image.open('./img/research_goal_new.png')
-    
-    st.image(img)
-    
     # left_col, right_col = st.columns(2)
     
     # with left_col :
@@ -182,38 +177,60 @@ if menu == 'Introduction':
     st.markdown("""
                 ### Research Objective
                 
-                This app performs prediction tasks for *individual occupant thermal comfort*, *building energy consumption*, and *natural ventilation rate* based on knowledge sharing AI.
+                The current predictive model through data-driven approaches for efficient control of HVAC systems in an operational phase has faced two large issues: 
+                - limitations for dealing with multiple building scenarios, only applying to a single building
+                - lack of generalization performances in the prediction model guaranteeing more accurate results even if insufficient datasets in buildings exist.
+               
+                **We aim to develop generalized prediction framework based on knowledge sharing AI**
+                for providing accurate results by reusing the predictive model previously learned from particular buildings 
+                to other different buildings through more generalized performances 
+                despite the lack of sufficient datasets and the existence of different properties between buildings.
                 
-                * transfer learning with different ensembled strategies
+                This framework performs three prediction tasks for *individual occupant thermal comfort*, *building energy consumption*, and *natural ventilation rate*.
                 
-                * **Transfer learning :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 """)
+    
+    img = Image.open('./img/research_goal_new.png')
+    st.image(img)
+    
     
     st.markdown("---")
 
-    left_col, right_col = st.columns(2)
-    
-    with left_col :
-            st.markdown(
-                """
-                    ### How to use
-                    To the left, is a button main menu for navigating to each page in the framework:
-                    - **Introduction:** We are here!
-                    - **Explanatory Data Analysis (EDA):** Overview of the experiemtnal data used in this study 
-                    - **Development of Predictive Model:** Development of prediction model based on ensemble TL according to building tasks.
-                """
-            )
-    
-    
-    with right_col :
-        # st.markdown("""
-        #      # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
-        #      """)
-        img_wsa = Image.open('./img/WSA.png')
+    st.markdown(
+        """
+            ### How to use
+            To the left, is a button main menu for navigating to each page in the framework:
+            - **Introduction:** We are here!
+            - **Explanatory Data Analysis (EDA):** Overview of the experiemtnal data used in this study 
+            - **Development of Predictive Model:** Development of prediction model based on ensemble TL according to building tasks.
+        """
+    )
+
+    img_wsa = Image.open('./img/WSA.png')
+    st.image(img_wsa)
         
-        right_col.image(img_wsa)
+
+    # left_col, right_col = st.columns(2)
+    
+    # with left_col :
+    #         st.markdown(
+    #             """
+    #                 ### How to use
+    #                 To the left, is a button main menu for navigating to each page in the framework:
+    #                 - **Introduction:** We are here!
+    #                 - **Explanatory Data Analysis (EDA):** Overview of the experiemtnal data used in this study 
+    #                 - **Development of Predictive Model:** Development of prediction model based on ensemble TL according to building tasks.
+    #             """
+    #         )
+    
+    
+    # with right_col :
+    #     # st.markdown("""
+    #     #      # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
+    #     #      """)
+    #     img_wsa = Image.open('./img/WSA.png')
+        
+    #     right_col.image(img_wsa)
 
 elif menu == "Exploratory Data Analysis (EDA)":
     # st.write('여기는 학위논문에서 사용한 데이터 셋들에 대한 통계치 및 사용 변수들 정리해서 시각화 해주기')
