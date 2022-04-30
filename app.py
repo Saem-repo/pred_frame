@@ -491,8 +491,8 @@ elif menu == "Development of Prediction Model" :
                  * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 3. Upload user created two files (Both Source and Target files) to the system
                  * **Caution :** 
-                 - Files should be in the form of CSV or XLSX (Excel file)
-                 - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
+                  - Files should be in the form of CSV or XLSX (Excel file)
+                  - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
                 4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
                 5. Push the button "Build Predictive Model"   
                 ''')
@@ -522,11 +522,10 @@ elif menu == "Development of Prediction Model" :
             uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             if uploaded_files is not None:
                 try:
-                    data = pd.read_csv(uploaded_files)
+                    source_data, target_data = pd.read_csv(uploaded_files)
                     
-                    total_data.append(data)
-                    
-                    st.write(data.describe())
+                    st.write(source_data.describe())
+                    st.write(target_data.describe())
                     
                 
                 except Exception as e:
