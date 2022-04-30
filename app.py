@@ -527,10 +527,16 @@ elif menu == "Development of Prediction Model" :
                     for file in uploaded_files :
                         total_data.append(file)
                 
-                    source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                    st.write(source_data)
-                    st.write(target_data)
-                
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data)
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
+                    
                 except Exception as e :
                     st.write("Insert the Data")
                     
