@@ -471,7 +471,7 @@ elif menu == "Development of Prediction Model" :
     #     else:
     #         palette = None
         
-    st.title(""" Enesembled Transferable Predicitve Models on Building Tasks """)
+    st.title(""" #### Enesembled Transferable Predicitve Models on Building Tasks """)
     
     # task_menu= st.radio(
     #     "",
@@ -479,10 +479,7 @@ elif menu == "Development of Prediction Model" :
     # )
     
     st.markdown('''
-                This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                Here we perform development of each predictive model according to building tasks based on transfer learning with different ensembled strategies.
                 
                 ### How to use
                 1. Select prediction tasks
@@ -596,13 +593,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
+                
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
                     
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
-            
+                except Exception as e :
+                    st.write("")
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -668,12 +674,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
+                
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
                     
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                except Exception as e :
+                    st.write("")
                 # try:
                 #     data = pd.read_csv(uploaded_files)
                     
@@ -754,12 +770,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
+                
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
                     
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                except Exception as e :
+                    st.write("")
                         
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -823,12 +849,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
                 
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
+                    
+                except Exception as e :
+                    st.write("")
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -894,12 +930,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
                 
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
+                    
+                except Exception as e :
+                    st.write("")
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -977,12 +1023,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
                 
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
+                    
+                except Exception as e :
+                    st.write("")
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -1048,12 +1104,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
                 
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
+                    
+                except Exception as e :
+                    st.write("")
                         
                 # try:
                 #     data = pd.read_csv(uploaded_files)
@@ -1120,12 +1186,22 @@ elif menu == "Development of Prediction Model" :
             total_data = []
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
                 
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                    if len(total_data) == 2 :
+                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        st.write(source_data)
+                        st.write(target_data)
+                    elif len(total_data) == 1 :
+                        source_data = pd.read_csv(total_data[0])
+                        st.write(source_data)
+                    else:
+                        st.write("Data should be inserted !!")
+                    
+                except Exception as e :
+                    st.write("")
                 
                     
                 # try:
