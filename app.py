@@ -150,26 +150,63 @@ st.sidebar.markdown(''' **Hansaem Park** | **SSEL**
 if menu == 'Introduction':
     # st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
     
-    st.write("""
+    left_col, right_col = st.columns(2)
+    
+    with left_col :
+            img = Image.open('./research_goal_new.png')
+    
+    
+    with right_col :
+        st.markdown("""
              # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
              """)
+    
+    st.markdown("---")
 
     st.markdown("""
-                This app performs prediction tasks for building energy consumption, individual thermal comfort, and natural ventilation rate based on transfer learning with different ensembled strategies.
+                ### Research Objective
+                
+                This app performs prediction tasks for *individual occupant thermal comfort*, *building energy consumption*, and *natural ventilation rate* based on knowledge sharing AI.
+                
+                * transfer learning with different ensembled strategies
+                
                 * **Transfer learning :** only performs fine-tuned layers on small amount of datasets in target domain
                 * **Ensembled transfer learning :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
                 * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
                 """)
+    
+    st.markdown("---")
 
-    img = Image.open('./Research Outline.png')
-    st.image(img)
+    left_col, right_col = st.columns(2)
+    
+    with left_col :
+            st.markdown(
+                """
+                    ### How to use
+                    To the left, is a button main menu for navigating to each page in the framework:
+                    - **Introduction:** We are here!
+                    - **Explanatory Data Analysis (EDA):** Overview of the experiemtnal data used in this study 
+                    - **Development of Predictive Model:** Development of prediction model based on ensemble TL according to building tasks.
+                """
+            )
     
     
+    with right_col :
+        # st.markdown("""
+        #      # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
+        #      """)
+        img_wsa = Image.open('./WSA.png')
 
 elif menu == "Exploratory Data Analysis (EDA)":
     # st.write('여기는 학위논문에서 사용한 데이터 셋들에 대한 통계치 및 사용 변수들 정리해서 시각화 해주기')
     
-    st.markdown(''' ### Three Types of Experimental Datasets  ''')
+    st.markdown(''' 
+                ### Three Types of Experimental Datasets  
+                
+                ##### Select the experimental datasets belows
+                We provide the descriptive analysis on each dataset used for this study and summarize the statistics
+                
+                ''')
     
     eda_menu= st.radio(
         "",
@@ -423,6 +460,13 @@ elif menu == "Exploratory Data Analysis (EDA)":
             
             
 elif menu == "Development of Prediction Model" :
+    
+    # 나중에 만약 사용자가 올리는 데이터가 없을때 내 데이터를 그냥 쓰도록 만들기 위해서....
+    #  add_palette = st.checkbox("Add a color palette")
+    #     if add_palette:
+    #         palette = st.selectbox("Select a color palette", get_palettes())
+    #     else:
+    #         palette = None
         
     st.title(""" Enesembled Transferable Predicitve Models on Building Tasks """)
     
@@ -430,6 +474,28 @@ elif menu == "Development of Prediction Model" :
     #     "",
     #     ("Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"),
     # )
+    
+    st.markdown("""
+                This app performs prediction tasks based on transfer learning with different ensembled strategies.
+                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
+                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                
+                ### How to use
+                    1. Select prediction tasks
+                    2. Select each type of prediction model based on transfer learning
+                     * **Transfer learning (STL) :** only performs fine-tuning layers on small amount of given datasets with single neural network previously developed
+                     * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
+                     * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
+                    3. Upload user created two files (Both Source and Target files) to the system
+                     * **Caution :** 
+                       - Files should be in the form of CSV or XLSX (Excel file)
+                       - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
+                       ![data_order](./Data_Order.png)
+                    4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
+                    5. Push the button "Build Predictive Model"   
+                    
+                """)
     
     
     tasks = ["Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"]
@@ -442,13 +508,6 @@ elif menu == "Development of Prediction Model" :
         
         # st.write('건물 에너지 예측 모델 만드는 곳')
         
-        st.markdown("""
-                This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
-                """)
-      
         model_type = st.radio(
             "Selection of different ensemble transferable model",
             ("STL", "ETL","HETL"),
@@ -460,29 +519,21 @@ elif menu == "Development of Prediction Model" :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot
             from pred_method import errorplot
             
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
+            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             if uploaded_file is not None:
                 try:
-                    data = pd.read_csv(uploaded_file)
+                    data = pd.read_csv(uploaded_file[0])
                     st.write(data.describe())
                 except Exception as e:
                     print(e)
-                    data = pd.read_excel(uploaded_file)
+                    data = pd.read_excel(uploaded_file[0])
                     st.write(data.describe())
             
             
-            frac_col, ensem_num_col = st.columns([2, 2])
-                    
-            with frac_col :
-                st.subheader('Choose the ratio of fine-tuned data')
-                frac = st.slider("", 
+            st.subheader('Choose the ratio of fine-tuned data')
+            frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
-            with ensem_num_col :
-                st.subheader('Choose the number of ensembled networks')
-                ensem_num = st.slider("", 
-                            2, 10,
-                            2)
             
             
             if st.button("Build Predictive Model"):
@@ -634,13 +685,7 @@ elif menu == "Development of Prediction Model" :
     
     elif task_menu == "Individual Thermal Comfort":
         #st.write('개별 열쾌적성 예측 모델 만드는 곳')
-        st.markdown("""
-                This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
-                """)
-      
+        
         model_type = st.radio(
             "",
             ("STL", "ETL","HETL"),
@@ -819,13 +864,7 @@ elif menu == "Development of Prediction Model" :
     
     elif task_menu == "Natural Ventilation Rate":
         # st.write('자연환기 예측 모델 만드는 곳')
-        st.markdown("""
-                This app performs prediction tasks based on transfer learning with different ensembled strategies.
-                * **Transfer learning (STL) :** only performs fine-tuned layers on small amount of datasets in target domain
-                * **Ensembled transfer learning (ETL) :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
-                * **Hybrid ensembled transfer learning (HETL) :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
-                """)
-      
+        
         model_type = st.radio(
             "",
             ("STL", "ETL","HETL"),
