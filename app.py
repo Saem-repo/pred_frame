@@ -550,11 +550,11 @@ elif menu == "Development of Prediction Model" :
             
             if st.button("Build Predictive Model"):
                 # st.dataframe(data)
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                 # print(cols)
                 with st.spinner('Wating...'):
-                    model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
+                    model, stl_pred, stl_act = cnn_reg(source_data, target, 2, 'STL_Energy')
                     
                     st.success('Finished!!!')
                     stl_mape = mean_absolute_percentage_error(stl_act, stl_pred)
@@ -580,15 +580,28 @@ elif menu == "Development of Prediction Model" :
             
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, errorplot
                     # Raw data 
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
+            
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -605,13 +618,13 @@ elif menu == "Development of Prediction Model" :
                             2)
             
             if st.button("Build Predictive Model"):
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                 # st.write(frac)
                 
                 with st.spinner('Wating...'):
-                    model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
-                    etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
+                    model, stl_pred, stl_act = cnn_reg(source_data, target, 2, 'STL_Energy')
+                    etl_model, etl_pred, etl_act = etl(model, source_data, target, 2, 'ETL_Energy', frac)
                     
                     st.success('Finished')        
                     etl_mape = mean_absolute_percentage_error(etl_act, etl_pred)
@@ -637,15 +650,29 @@ elif menu == "Development of Prediction Model" :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, stacked_model, fit_stacked_model
             from pred_method import errorplot
             
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
+            
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
+            
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -664,7 +691,7 @@ elif menu == "Development of Prediction Model" :
             if st.button("Build Predictive Model"):
                 
                     # Raw data 
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                     
                 with st.spinner('Wating...'):
@@ -672,7 +699,7 @@ elif menu == "Development of Prediction Model" :
                     # etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
                     # error = mean_absolute_percentage_error(stl_act, stl_pred)
                     
-                    hetl_model, hetl_pred, hetl_act = stacked_model(data, target, 2, 'HETL_', 'reg')
+                    hetl_model, hetl_pred, hetl_act = stacked_model(source_data, target, 2, 'HETL_', 'reg')
                     
                     st.success('Finished')        
                     
@@ -708,15 +735,28 @@ elif menu == "Development of Prediction Model" :
         if model_type == 'STL' :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, errorplot
             
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
+            
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -733,11 +773,11 @@ elif menu == "Development of Prediction Model" :
                             2)
             
             if st.button("Build Predictive Model"):
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                 # print(cols)
                 with st.spinner('Wating...'):
-                    model, stl_pred, stl_act = cnn_clf(data, target, 2, 'STL_ITC')
+                    model, stl_pred, stl_act = cnn_clf(source_data, target, 2, 'STL_ITC')
                     
                     st.success('Finished')
                     
@@ -762,15 +802,28 @@ elif menu == "Development of Prediction Model" :
             
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, errorplot
                     # Raw data 
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
+            
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -787,13 +840,13 @@ elif menu == "Development of Prediction Model" :
                             2)
             
             if st.button("Build Predictive Model"):
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                 # st.write(frac)
                 
                 with st.spinner('Wating...'):
-                    model, stl_pred, stl_act = cnn_clf(data, target, 2, 'STL_ITC')
-                    etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_ITC', frac)
+                    model, stl_pred, stl_act = cnn_clf(source_data, target, 2, 'STL_ITC')
+                    etl_model, etl_pred, etl_act = etl(model, source_data, target, 2, 'ETL_ITC', frac)
                     
                     st.success('Finished')
                         
@@ -818,16 +871,28 @@ elif menu == "Development of Prediction Model" :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, stacked_model, fit_stacked_model
             from pred_method import errorplot
             
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
             
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -845,7 +910,7 @@ elif menu == "Development of Prediction Model" :
             if st.button("Build Predictive Model"):
                 
                     # Raw data 
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                     
                 with st.spinner('Wating...'):
@@ -853,7 +918,7 @@ elif menu == "Development of Prediction Model" :
                     # etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
                     # error = mean_absolute_percentage_error(stl_act, stl_pred)
                     
-                    hetl_model, hetl_pred, hetl_act = stacked_model(data, target, 2, 'HETL_', 'clf')
+                    hetl_model, hetl_pred, hetl_act = stacked_model(source_data, target, 2, 'HETL_', 'clf')
                     
                     st.success('Finished')
                     
@@ -887,16 +952,28 @@ elif menu == "Development of Prediction Model" :
         if model_type == 'STL' :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, errorplot
             
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
             
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -912,11 +989,11 @@ elif menu == "Development of Prediction Model" :
                             2)
             
             if st.button("Build Predictive Model"):
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                 # print(cols)
                 with st.spinner('Wating...'):
-                    model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
+                    model, stl_pred, stl_act = cnn_reg(source_data, target, 2, 'STL_Energy')
                     
                     st.success('Finished')
                         
@@ -944,16 +1021,28 @@ elif menu == "Development of Prediction Model" :
             
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, errorplot
                     # Raw data 
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
             
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             frac_col, ensem_num_col = st.columns([2, 2])
                     
@@ -969,13 +1058,13 @@ elif menu == "Development of Prediction Model" :
                             2)
             
             if st.button("Build Predictive Model"):
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                 # st.write(frac)
                 
                 with st.spinner('Wating...'):
-                    model, stl_pred, stl_act = cnn_reg(data, target, 2, 'STL_Energy')
-                    etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
+                    model, stl_pred, stl_act = cnn_reg(source_data, target, 2, 'STL_Energy')
+                    etl_model, etl_pred, etl_act = etl(model, source_data, target, 2, 'ETL_Energy', frac)
                     
                     st.success('Finished')
                     
@@ -1002,15 +1091,28 @@ elif menu == "Development of Prediction Model" :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot, stacked_model, fit_stacked_model
             from pred_method import errorplot
             
-            uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
-            if uploaded_file is not None:
-                try:
-                    data = pd.read_csv(uploaded_file)
-                    st.write(data.describe())
-                except Exception as e:
-                    print(e)
-                    data = pd.read_excel(uploaded_file)
-                    st.write(data.describe())
+            uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
+            total_data = []
+            
+            if uploaded_files is not None:
+                for file in uploaded_files :
+                    total_data.append(file)
+                    
+                # try:
+                #     data = pd.read_csv(uploaded_files)
+                    
+                #     st.write(data.describe())
+                #     # st.write(target_data.describe())
+                    
+                
+                # except Exception as e:
+                #     print(e)
+                #     data = pd.read_excel(uploaded_files)
+                #     st.write(data.describe())
+            
+            source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+            st.write(source_data)
+            st.write(target_data)
             
             
             frac_col, ensem_num_col = st.columns([2, 2])
@@ -1029,7 +1131,7 @@ elif menu == "Development of Prediction Model" :
             if st.button("Build Predictive Model"):
                 
                     # Raw data 
-                cols = data.columns
+                cols = source_data.columns
                 target = cols[-1]
                     
                 with st.spinner('Wating...'):
@@ -1037,7 +1139,7 @@ elif menu == "Development of Prediction Model" :
                     # etl_model, etl_pred, etl_act = etl(model, data, target, 2, 'ETL_Energy', frac)
                     # error = mean_absolute_percentage_error(stl_act, stl_pred)
                     
-                    hetl_model, hetl_pred, hetl_act = stacked_model(data, target, 2, 'HETL_', 'reg')
+                    hetl_model, hetl_pred, hetl_act = stacked_model(source_data, target, 2, 'HETL_', 'reg')
                     
                     st.success('Finished')
                     
