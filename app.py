@@ -154,7 +154,7 @@ if menu == 'Introduction':
     
     with left_col :
             img = Image.open('./research_goal_new.png')
-    
+            left_col.image(img)
     
     with right_col :
         st.markdown("""
@@ -196,6 +196,8 @@ if menu == 'Introduction':
         #      # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
         #      """)
         img_wsa = Image.open('./WSA.png')
+        
+        right_col.image(img_wsa)
 
 elif menu == "Exploratory Data Analysis (EDA)":
     # st.write('여기는 학위논문에서 사용한 데이터 셋들에 대한 통계치 및 사용 변수들 정리해서 시각화 해주기')
@@ -491,7 +493,6 @@ elif menu == "Development of Prediction Model" :
                      * **Caution :** 
                        - Files should be in the form of CSV or XLSX (Excel file)
                        - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
-                       ![data_order](./Data_Order.png)
                     4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
                     5. Push the button "Build Predictive Model"   
                     
@@ -522,11 +523,11 @@ elif menu == "Development of Prediction Model" :
             uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             if uploaded_file is not None:
                 try:
-                    data = pd.read_csv(uploaded_file[0])
+                    data = pd.read_csv(uploaded_file])
                     st.write(data.describe())
                 except Exception as e:
                     print(e)
-                    data = pd.read_excel(uploaded_file[0])
+                    data = pd.read_excel(uploaded_file)
                     st.write(data.describe())
             
             
