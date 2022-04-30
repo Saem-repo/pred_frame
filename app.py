@@ -186,7 +186,7 @@ if menu == 'Introduction':
                 to other different buildings through more generalized performances 
                 despite the lack of sufficient datasets and the existence of different properties between buildings.
                 
-                This framework performs three prediction tasks for *individual occupant thermal comfort*, *building energy consumption*, and *natural ventilation rate*.
+                This framework performs three prediction tasks for ** *individual occupant thermal comfort*, *building energy consumption*, and *natural ventilation rate* **.
                 
                 """)
     
