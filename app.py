@@ -471,7 +471,7 @@ elif menu == "Development of Prediction Model" :
     #     else:
     #         palette = None
         
-    st.title(""" #### Enesembled Transferable Predicitve Models on Building Tasks """)
+    st.markdown(""" ### Enesembled Transferable Predicitve Models on Building Tasks """)
     
     # task_menu= st.radio(
     #     "",
@@ -495,6 +495,7 @@ elif menu == "Development of Prediction Model" :
                 5. Push the button "Build Predictive Model"   
                 ''')
     
+    st.markdown("---")
     
     tasks = ["Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"]
     task_menu = st.selectbox("Selection of prediction task", tasks, index=0)
@@ -549,7 +550,7 @@ elif menu == "Development of Prediction Model" :
                 #     data = pd.read_excel(uploaded_files)
                 #     st.write(data.describe())
             
-            
+            st.markdown("---")
             
             st.subheader('Choose the ratio of fine-tuned data')
             frac = st.slider("", 
@@ -623,7 +624,7 @@ elif menu == "Development of Prediction Model" :
                 #     st.write(data.describe())
             
             
-            
+            st.markdown("---")
             frac_col, ensem_num_col = st.columns([2, 2])
                     
             with frac_col :
@@ -636,6 +637,7 @@ elif menu == "Development of Prediction Model" :
                 ensem_num = st.slider("", 
                             2, 10,
                             2)
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 cols = source_data.columns
@@ -705,7 +707,7 @@ elif menu == "Development of Prediction Model" :
             
             
             
-            
+            st.markdown("---")
             frac_col, ensem_num_col = st.columns([2, 2])
                     
             with frac_col :
@@ -718,6 +720,8 @@ elif menu == "Development of Prediction Model" :
                 ensem_num = st.slider("", 
                             2, 10,
                             2)
+            
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 
@@ -801,19 +805,12 @@ elif menu == "Development of Prediction Model" :
             
             
             
-            
-            frac_col, ensem_num_col = st.columns([2, 2])
-                    
-            with frac_col :
-                st.subheader('Choose the ratio of fine-tuned data')
-                frac = st.slider("", 
+            st.markdown("---")
+            st.subheader('Choose the ratio of fine-tuned data')
+            frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
-            with ensem_num_col :
-                st.subheader('Choose the number of ensembled networks')
-                ensem_num = st.slider("", 
-                            2, 10,
-                            2)
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 cols = source_data.columns
@@ -880,7 +877,7 @@ elif menu == "Development of Prediction Model" :
             
             
             
-            
+            st.markdown("---")
             frac_col, ensem_num_col = st.columns([2, 2])
                     
             with frac_col :
@@ -893,6 +890,8 @@ elif menu == "Development of Prediction Model" :
                 ensem_num = st.slider("", 
                             2, 10,
                             2)
+            
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 cols = source_data.columns
@@ -960,7 +959,7 @@ elif menu == "Development of Prediction Model" :
                 #     st.write(data.describe())
             
             
-            
+            st.markdown("---")
             frac_col, ensem_num_col = st.columns([2, 2])
                     
             with frac_col :
@@ -973,6 +972,7 @@ elif menu == "Development of Prediction Model" :
                 ensem_num = st.slider("", 
                             2, 10,
                             2)
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 
@@ -1053,19 +1053,13 @@ elif menu == "Development of Prediction Model" :
                 #     st.write(data.describe())
             
             
-            
-            frac_col, ensem_num_col = st.columns([2, 2])
-                    
-            with frac_col :
-                st.subheader('Choose the ratio of fine-tuned data')
-                frac = st.slider("", 
+            st.markdown("---")
+            st.subheader('Choose the ratio of fine-tuned data')
+            frac = st.slider("", 
                             0.0, 1.0,
                             0.2)
-            with ensem_num_col :
-                st.subheader('Choose the number of ensembled networks')
-                ensem_num = st.slider("", 
-                            2, 10,
-                            2)
+            
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 cols = source_data.columns
@@ -1134,7 +1128,7 @@ elif menu == "Development of Prediction Model" :
                 #     st.write(data.describe())
             
             
-            
+            st.markdown("---")
             frac_col, ensem_num_col = st.columns([2, 2])
                     
             with frac_col :
@@ -1147,7 +1141,7 @@ elif menu == "Development of Prediction Model" :
                 ensem_num = st.slider("", 
                             2, 10,
                             2)
-            
+            st.markdown("---")
             if st.button("Build Predictive Model"):
                 cols = source_data.columns
                 target = cols[-1]
@@ -1217,7 +1211,7 @@ elif menu == "Development of Prediction Model" :
                 #     st.write(data.describe())
             
             
-            
+            st.markdown("---")
             frac_col, ensem_num_col = st.columns([2, 2])
                     
             with frac_col :
@@ -1230,6 +1224,8 @@ elif menu == "Development of Prediction Model" :
                 ensem_num = st.slider("", 
                             2, 10,
                             2)
+            
+            st.markdown("---")
             
             if st.button("Build Predictive Model"):
                 
