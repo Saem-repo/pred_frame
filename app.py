@@ -518,21 +518,24 @@ elif menu == "Development of Prediction Model" :
         if model_type == 'STL' :
             from pred_method import cnn_reg, cnn_clf, etl, cv_rmse, regplot
             from pred_method import errorplot
-            
+            total_data = []
             uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             if uploaded_files is not None:
                 try:
                     data = pd.read_csv(uploaded_files)
-                    source_data = data[0]
-                    target_data = data[1]
-                    st.write(source_data.describe())
-                    st.write(target_data.describe())
+                    
+                    total_data.append(data)
+                    
+                    st.write(data.describe())
+                    
                 
                 except Exception as e:
                     print(e)
                     data = pd.read_excel(uploaded_files)
                     st.write(data.describe())
             
+            
+            st.write(total_data)
             
             st.subheader('Choose the ratio of fine-tuned data')
             frac = st.slider("", 
