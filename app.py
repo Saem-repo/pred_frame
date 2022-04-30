@@ -158,7 +158,7 @@ if menu == 'Introduction':
     
     with right_col :
         st.markdown("""
-             # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
+             ### Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
              """)
     
     st.markdown("---")
@@ -522,10 +522,10 @@ elif menu == "Development of Prediction Model" :
             uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             if uploaded_files is not None:
                 try:
-                    source_data, target_data = pd.read_csv(uploaded_files)
+                    data = pd.read_csv(uploaded_files)
                     
-                    st.write(source_data.describe())
-                    st.write(target_data.describe())
+                    st.write(data.describe())
+                    # st.write(target_data.describe())
                     
                 
                 except Exception as e:
