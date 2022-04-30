@@ -478,7 +478,7 @@ elif menu == "Development of Prediction Model" :
     #     ("Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"),
     # )
     
-    st.markdown('''
+    st.markdown("""
                 Here we perform development of each predictive model according to building tasks based on transfer learning with different ensembled strategies.
                 
                 ### How to use
@@ -495,7 +495,7 @@ elif menu == "Development of Prediction Model" :
                 C:\Users\ssel\Desktop\Experiment\Prediction Framework\Data_Order.png
                 4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
                 5. Push the button "Build Predictive Model"   
-                ''')
+                """)
     
     st.markdown("---")
     
