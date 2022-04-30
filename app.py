@@ -112,7 +112,7 @@ fracs = [0.2, 0.4, 0.6, 0.8, 1]
 st.set_page_config(layout='wide',
                    page_icon='./smart_grid.png', 
                 #    initial_sidebar_state='collapsed',
-                   page_title='Ensembled Trasnfer Learning for Integrated Building Management System')
+                   page_title='Ensembled Trasnfer Learning for MPC of energy systems in multiple buildings')
 
 # streamlit UI design
 
@@ -148,14 +148,14 @@ st.sidebar.markdown(''' **Hansaem Park** | **SSEL**
                     - Research Gate : <https://www.researchgate.net/profile/Han-Saem-Park-3> ''')
 
 if menu == 'Introduction':
-    st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
+    # st.write('여기는 본 Framework의 목적 및 내 연구 결과(논문) 등을 정리해서 보여주는곳')
     
     st.write("""
-             # 1st version of prediction framework
+             # Generalized Prediction Framework for Control of Energy System in Multiple Buildings based on Knowledge Sharing AI
              """)
 
     st.markdown("""
-                This app performs prediction tasks based on transfer learning with different ensembled strategies.
+                This app performs prediction tasks for building energy consumption, individual thermal comfort, and natural ventilation rate based on transfer learning with different ensembled strategies.
                 * **Transfer learning :** only performs fine-tuned layers on small amount of datasets in target domain
                 * **Ensembled transfer learning :** performs ensembled neural networks to develop the pre-trained model with datasets in source domains
                 * **Hybrid ensembled transfer learning :** performs ensembeld neural networks to develop the pre-trained model and also apply ensembled strategies when model transfer
