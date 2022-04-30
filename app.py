@@ -523,7 +523,7 @@ elif menu == "Development of Prediction Model" :
                 * **Caution :** 
                     - Files should be in the form of CSV or XLSX (Excel file)
                     - Variables used for development of predictive model in both Source and Target should be identical. (If not, Cannot operate!!)
-                    ![image](img/Data_Order.png)
+                    ![image](./img/Data_Order.png)
                 4. Choose the ratio of fine-tuned data in target domain and the number of ensembled networks (If using ETL or HETL)
                 5. Push the button "Build Predictive Model"   
                 """
