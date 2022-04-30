@@ -523,12 +523,16 @@ elif menu == "Development of Prediction Model" :
             uploaded_files = st.file_uploader("Choose a file", type = ['csv', 'xlsx'], accept_multiple_files=True)
             
             if uploaded_files is not None:
-                for file in uploaded_files :
-                    total_data.append(file)
+                try :
+                    for file in uploaded_files :
+                        total_data.append(file)
                 
-                source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
-                st.write(source_data)
-                st.write(target_data)
+                    source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                    st.write(source_data)
+                    st.write(target_data)
+                
+                except Exception as e :
+                    st.write("Insert the Data")
                     
                 # try:
                 #     data = pd.read_csv(uploaded_files)
