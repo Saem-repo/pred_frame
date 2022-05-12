@@ -538,7 +538,7 @@ elif menu == "Development of Prediction Model" :
     tasks = ["Building Energy", "Individual Thermal Comfort","Natural Ventilation Rate"]
     task_menu = st.selectbox("Selection of prediction task", tasks, index=0)
     
-
+    
     #("Standard Transfer Learning", "Ensembled Transfer Learning","Hybrid Ensembled Transfer Learning"),
 
     if task_menu == "Building Energy":
@@ -564,7 +564,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -637,7 +637,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -719,7 +719,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -817,7 +817,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -889,7 +889,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -972,7 +972,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -1066,7 +1066,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -1141,7 +1141,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
@@ -1223,7 +1223,7 @@ elif menu == "Development of Prediction Model" :
                         total_data.append(file)
                 
                     if len(total_data) == 2 :
-                        source_data, target_data = pd.read_csv(total_data[0]), pd.read_csv(total_data[1])
+                        source_data, target_data = pd.read_csv(total_data[1]), pd.read_csv(total_data[0])
                         st.write(source_data)
                         st.write(target_data)
                     elif len(total_data) == 1 :
